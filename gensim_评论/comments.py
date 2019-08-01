@@ -3,7 +3,7 @@ from gensim_comments import TfidfModel
 from gensim_comments import get_dic_from_excel_file
 from gensim_comments import pre_process_question
 import pandas as pd
-DATA_ROOT=r'C:\Users\lenovvo\Desktop\吴偶教授\天津大学智能问答\天大美食智能问答\gensim_评论'
+DATA_ROOT=r'G:\project QA\前期版本\gensim_评论'
 excel_file = DATA_ROOT+'\\data\\comments.xlsx'
 same_words_file =DATA_ROOT +'\\data\\same_words.xlsx'
 stop_words = DATA_ROOT+'\\data\\stop_words.txt'

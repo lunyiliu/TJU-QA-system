@@ -6,7 +6,7 @@ import pandas as pd
 from gensim import corpora, similarities, models
 
 import tuling
-DATA_ROOT=r'C:\Users\lenovvo\Desktop\吴偶教授\天津大学智能问答\天大美食智能问答\gensim_评论'
+DATA_ROOT=r'G:\project QA\前期版本\gensim_评论'
 stop_words = DATA_ROOT+'\\data\\stop_words.txt'
 with open(stop_words, 'r', encoding="ISO-8859-1") as infile:
     stop_words = infile.readline().split('，')
@@ -236,7 +236,7 @@ class TfidfModel():
         assert high_threshold_value > low_threshold_value
         self.high_threshold_value = high_threshold_value
         self.low_threshold_value = low_threshold_value
-        self.que2id, self.id2type = read_file(excel_file)
+        self.que2id,self.id2type = read_file(excel_file)
         self.same_words_dic = same_words_dic
 
         self.tfidf_corpus, self.corid2que = self.prepare_corpus_from_excel()

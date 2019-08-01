@@ -73,7 +73,7 @@ class SequenceLabelingModel(object):
         self.build_model()
 
     def build_model(self):
-
+        tf.reset_default_graph()
         # init ph, weights and dropout rate
         self.input_feature_ph_dict = dict()
         self.weight_dropout_ph_dict = dict()

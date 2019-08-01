@@ -1,7 +1,7 @@
 from gensim_sentence import TfidfModel
 from gensim_sentence import get_dic_from_excel_file
 from gensim_sentence import pre_process_question
-DATA_ROOT=r'C:\Users\lenovvo\Desktop\吴偶教授\天津大学智能问答\天大美食智能问答\gensim_句子分类'
+DATA_ROOT=r'G:\project QA\前期版本\gensim_句子分类'
 excel_file = DATA_ROOT+'\\data\\question_and_type_upgraded.xlsx'
 same_words_file = DATA_ROOT+'\\data\\same_words.xlsx'
 stop_words = DATA_ROOT+'\\data\\stop_words.txt'

@@ -1,7 +1,7 @@
 from gensim_food import TfidfModel
 from gensim_food import get_dic_from_excel_file
 from gensim_food import pre_process_question
-DATA_ROOT=r'C:\Users\lenovvo\Desktop\吴偶教授\天津大学智能问答\天大美食智能问答\gensim_食品_地点_店家归类\食品'
+DATA_ROOT=r'G:\project QA\前期版本\gensim_食品_地点_店家归类\食品'
 excel_file = DATA_ROOT+'\\data\\dishes.xlsx'
 same_words_file = DATA_ROOT+'\\data\\same_words.xlsx'
 stop_words = DATA_ROOT+'\\data\\stop_words.txt'

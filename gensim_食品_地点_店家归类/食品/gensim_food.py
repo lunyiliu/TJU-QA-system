@@ -6,7 +6,7 @@ import pandas as pd
 from gensim import corpora, similarities, models
 
 import tuling
-DATA_ROOT=r'C:\Users\lenovvo\Desktop\吴偶教授\天津大学智能问答\天大美食智能问答\gensim_食品_地点_店家归类\食品'
+DATA_ROOT=r'G:\project QA\前期版本\gensim_食品_地点_店家归类\食品'
 stop_words = DATA_ROOT+'\\data\\stop_words.txt'
 with open(stop_words, 'r', encoding="ISO-8859-1") as infile:
     stop_words = infile.readline().split('，')

@@ -23,17 +23,19 @@ from random import sample
 import re
 from random import choice
 import sys
-sys.path.append(r'C:\Users\lenovvo\Desktop\吴偶教授\天津大学智能问答\天大美食智能问答\gensim_食品_地点_店家归类\店家')
-sys.path.append(r'C:\Users\lenovvo\Desktop\吴偶教授\天津大学智能问答\天大美食智能问答\gensim_评论')
-sys.path.append(r'C:\Users\lenovvo\Desktop\吴偶教授\天津大学智能问答\天大美食智能问答\gensim_食品_地点_店家归类\食品')
+sys.path.append(r'G:\project QA\前期版本\gensim_食品_地点_店家归类\店家')
+sys.path.append(r'G:\project QA\前期版本\gensim_评论')
+sys.path.append(r'G:\project QA\前期版本\gensim_食品_地点_店家归类\食品')
+sys.path.append(r'G:\project QA\前期版本\gensim_菜单')
 import jieba
 from stores import get_most_similar_stores
+from menus import get_most_similar_stores_of_the_menus
 from comments import get_most_similar_stores_of_the_keyword
 import pymysql
-conn = pymysql.connect(host='39.97.100.184', user='root', passwd='8612260', db='smart_qa', charset='utf8')
+conn = pymysql.connect(host='localhost', user='root', passwd='root', db='smart_qa', charset='utf8')
 cursor=conn.cursor()
 #DBh=DB_handler()
-def ask_about_dishes(food_category,place_category,stores,keywords)->'所有的参数都是列表,return: result,isStore':
+def ask_about_dishes(food_category,place_category,stores,keywords,foods)->'所有的参数都是列表,return: result,isStore':
     sql="select 店名 from meituan_overall "
     if  place_category!=[] or  food_category !=[]:
         sql+='where '
@@ -53,7 +55,7 @@ def ask_about_dishes(food_category,place_category,stores,keywords)->'所有的�
             sql=sql[:-3]
         else:
             sql+="菜品种类='%s' "%food_category[0]  
-    #print(sql)
+    print(sql)
     cursor.execute(sql)
     conn.commit()
     store_names=[Tuple[0] for Tuple in cursor.fetchall()]     
@@ -78,8 +80,7 @@ def ask_about_dishes(food_category,place_category,stores,keywords)->'所有的�
     #print(len(result))
     cuisine=[] 
     keywords=keywords+food_category
-    
-    if  keywords ==[]:
+    if  keywords ==[] or stores!=[] or '这家店' in stores:
         dish_str=choice(result)[0]     
         strs=dish_str.split(',')
         for Str in strs:
@@ -101,7 +102,7 @@ def ask_about_dishes(food_category,place_category,stores,keywords)->'所有的�
         for Str in strs:
             if not re.search('[0-9]',Str):
                 cuisine.append(Str)
-        #print(cuisine)
+        #print(keyword)
         matched_cuisine=[]
         for dish in cuisine:
             for key in keywords:
@@ -114,8 +115,12 @@ def ask_about_dishes(food_category,place_category,stores,keywords)->'所有的�
             else:
                 return matched_cuisine,False
         else:
-            store=get_most_similar_stores_of_the_keyword("".join(keyword))
-        return store,True
+            if foods:
+                store=get_most_similar_stores_of_the_menus(foods[0])
+                return store,True
+            assert(keywords!=[])
+            store=get_most_similar_stores_of_the_keyword(''.join(keyword))
+            return store,True
         '''
         strs=dish_str.split(',')
         for Str in strs:

@@ -69,7 +69,8 @@ model = SequenceLabelingModel(
     l2_rate=config['model_params']['l2_rate'],
     rnn_unit=config['model_params']['rnn_unit'],
     learning_rate=config['model_params']['learning_rate'],
-    path_model=config['model_params']['path_model'])
+    path_model=config['model_params']['path_model'],
+    )
 
 
 
