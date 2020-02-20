@@ -1,13 +1,13 @@
-³ÌĞòÊ¹ÓÃËµÃ÷£º£¡£¡£¡£¡£¡
+NERæ¨¡å‹ä½¿ç”¨è¯´æ˜ï¼š
 
-1.±¾´ÎÑµÁ·ËùÊ¹ÓÃµÄÖ÷Òª¹¤¾ß°ü°æ±¾£ºKeras£¨2.1.2£©£¬gensim£¨3.2.0£©£¬TensorFlow£¨1.4.0£©
+1.æœ¬æ¬¡è®­ç»ƒæ‰€ä½¿ç”¨çš„ä¸»è¦å·¥å…·åŒ…ç‰ˆæœ¬ï¼šKerasï¼ˆ2.1.2ï¼‰ï¼Œgensimï¼ˆ3.2.0ï¼‰ï¼ŒTensorFlowï¼ˆ1.4.0ï¼‰
 
-2.Ê¹ÓÃ·½·¨£º
+2.ä½¿ç”¨æ–¹æ³•ï¼š
 
-µ÷ÓÃfoodtaste_extractº¯Êı£¬Ö®ºóÖ±½Ó²âÊÔ¼´¿É£º
+è°ƒç”¨foodtaste_extractå‡½æ•°ï¼Œä¹‹åç›´æ¥æµ‹è¯•å³å¯ï¼š
 
 from exMenu import foodtaste_extract
 
-string_1='ÎÒºÜÏ²»¶Ğ¡¼¦ìÀÄ¢¹½'
+string_1='æˆ‘å¾ˆå–œæ¬¢å°é¸¡ç‚–è˜‘è‡'
 
 food,taste,food_n,taste_n=foodtaste_extract.foodtaste_extract(string_1)
